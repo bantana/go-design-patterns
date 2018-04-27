@@ -15,8 +15,8 @@ var (
 	once      sync.Once
 )
 
-// GetInstance provide Export access
-func GetInstance() *Singleton {
+// New provide Export access
+func New() *Singleton {
 	once.Do(func() {
 		singleton = &Singleton{}
 	})
