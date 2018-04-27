@@ -5,26 +5,26 @@ import (
 )
 
 // Singleton type
-type Singleton struct {
+type singleton struct {
 	m     sync.Mutex
-	count int
+	count int64
 }
 
 var (
-	singleton *Singleton
-	once      sync.Once
+	instance *singleton
+	once     sync.Once
 )
 
-// New provide Export access
-func New() *Singleton {
+// Get provide Export access
+func Get() *singleton {
 	once.Do(func() {
-		singleton = &Singleton{}
+		instance = new(singleton)
 	})
-	return singleton
+	return instance
 }
 
 // AddOne provide Singleton modify number
-func (i *Singleton) AddOne() int {
+func (i *singleton) Add() int64 {
 	i.m.Lock()
 	defer i.m.Unlock()
 	i.count++
@@ -32,6 +32,6 @@ func (i *Singleton) AddOne() int {
 }
 
 // GetCount provide Get Singleton properties.
-func (i *Singleton) GetCount() int {
+func (i *singleton) Count() int64 {
 	return i.count
 }

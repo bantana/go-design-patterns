@@ -1,14 +1,14 @@
 package singleton
 
 // Singleton type
-type Singleton struct{}
+type singleton struct{}
 
-var instance *Singleton
+var instance *singleton
 
-// New ...
-func New() *Singleton {
+// Get ...
+func Get() *singleton {
 	if instance == nil {
-		instance = &Singleton{}
+		instance = &singleton{}
 	}
 	return instance
 }
