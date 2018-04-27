@@ -5,8 +5,8 @@ type Singleton struct{}
 
 var instance *Singleton
 
-// GetInstance ...
-func GetInstance() *Singleton {
+// Get ...
+func Get() *Singleton {
 	if instance == nil {
 		instance = &Singleton{}
 	}

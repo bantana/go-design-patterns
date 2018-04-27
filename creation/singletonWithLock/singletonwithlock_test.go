@@ -5,10 +5,10 @@ import (
 )
 
 func TestSingleton(t *testing.T) {
-	ins1 := GetInstance()
-	ins2 := GetInstance()
-	ins1.AddOne()
-	ins2.AddOne()
+	ins1 := Get()
+	ins2 := Get()
+	ins1.Add()
+	ins2.Add()
 	if ins1 != ins2 {
 		t.Fatal("instance is not equal")
 	}
